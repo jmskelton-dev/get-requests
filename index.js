@@ -1,5 +1,7 @@
+let count = 0;
+
 function getDogImage() {
-  fetch('https://dog.ceo/api/breeds/image/random')
+  fetch(`https://dog.ceo/api/breeds/image/random/${count}`)
     .then(response => response.json())
     .then(responseJson => 
       displayResults(responseJson))
