@@ -29,18 +29,19 @@ function displayResults() {
 
 function watchForm() {
   $('form').submit(event => {
-    count = $(":input").val();
     event.preventDefault();
+    count = $(":input").val();
+    if (count > 50){
+      alert("Please select 50 dogs or less!");
+    }
+    else if (count <= 50) {
     getDogImage();
+    }
   });
 }
 
 
 $(function() {
   console.log('App loaded! Waiting for submit!');
-  var $select = $(".count");
-  for (i=1;i<=50;i++){
-      $select.append($('<option></option>').val(i).html(i))
-  }
   watchForm();
 });
